@@ -16,6 +16,7 @@
         <selenium4.x>4.0.0-beta-4</selenium4.x>
         <selenium3.x>3.141.59</selenium3.x>
         <maven-surefire-plugin>3.0.0-M5</maven-surefire-plugin>
+        <maven-compiler-plugin>3.8.0</maven-compiler-plugin>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -43,7 +44,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>${maven-compiler-plugin}</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
