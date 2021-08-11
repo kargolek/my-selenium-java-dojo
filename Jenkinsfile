@@ -5,18 +5,21 @@ pipeline {
         jdk 'jdk'
     }
     stages {
-        stage ('Initialize') {
-            steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                '''
-            }
-        }
-
         stage('Build') {
             steps {
                sh 'mvn -B -DskipTests clean package'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'mvn test -pl selenium3.x'
+            }
+        }
+
+        post {
+            always {
+               junit 'selenium3.x/target/surefire-reports/*.xml'
             }
         }
     }
