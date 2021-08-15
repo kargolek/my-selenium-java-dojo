@@ -18,12 +18,12 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'mvn test -pl selenium3.x'
+                sh 'mvn test -pl selenium3'
             }
 
             post {
                 always {
-                    junit 'selenium3.x/target/surefire-reports/*.xml'
+                    junit 'selenium3/target/surefire-reports/*.xml'
                 }
             }
         }
