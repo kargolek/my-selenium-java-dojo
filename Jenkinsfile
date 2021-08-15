@@ -4,6 +4,11 @@ pipeline {
         maven 'maven_home'
         jdk 'jdk'
     }
+
+    environment {
+        AUTOMATION_MACHINE = 'CI'
+    }
+
     stages {
         stage('Build') {
             steps {

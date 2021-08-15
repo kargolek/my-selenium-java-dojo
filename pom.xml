@@ -8,8 +8,8 @@
     <packaging>pom</packaging>
     <version>0.0.1</version>
     <modules>
-        <module>selenium4.x</module>
-        <module>selenium3.x</module>
+        <module>selenium4</module>
+        <module>selenium3</module>
     </modules>
     <properties>
         <junit.jupiter.version>5.7.2</junit.jupiter.version>
@@ -17,6 +17,7 @@
         <selenium3.x>3.141.59</selenium3.x>
         <maven-surefire-plugin>3.0.0-M5</maven-surefire-plugin>
         <maven-compiler-plugin>3.8.0</maven-compiler-plugin>
+        <webdrivermanager>4.4.3</webdrivermanager>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -31,6 +32,11 @@
                 <artifactId>junit-jupiter-params</artifactId>
                 <version>${junit.jupiter.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.github.bonigarcia</groupId>
+                <artifactId>webdrivermanager</artifactId>
+                <version>${webdrivermanager}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
