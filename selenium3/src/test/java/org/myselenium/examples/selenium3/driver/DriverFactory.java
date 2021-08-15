@@ -24,6 +24,7 @@ public class DriverFactory {
     }
 
     public static WebDriver getDriver() throws MalformedURLException {
+        System.out.printf("Automation env value: %s", System.getenv("AUTOMATION_MACHINE"));
         return System.getenv("AUTOMATION_MACHINE").equals("local") ? getDriver(DriverType.CHROME) : getDriver(DriverType.REMOTE);
     }
 }

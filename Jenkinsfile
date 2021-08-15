@@ -18,6 +18,7 @@ pipeline {
 
         stage('Test') {
             steps {
+                sh curl http://localhost:4444/wd/hub/
                 sh 'mvn test -pl selenium3'
             }
 
