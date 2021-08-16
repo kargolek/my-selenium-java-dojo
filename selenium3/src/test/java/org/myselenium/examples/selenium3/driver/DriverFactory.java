@@ -12,14 +12,11 @@ public class DriverFactory {
         switch (driverType) {
             case REMOTE:
                 return new RemoteDriverManager()
-                        .setFullWindowSize()
+                        .setIgnoreCertErrors()
                         .getDriver();
             default:
                 return new ChromeDriverManager()
-                        //.setFullWindowSize()
-                        //.setHeadlessMode()
                         .setIgnoreCertErrors()
-                        //.setDisabledGPU()
                         .getDriver();
         }
     }
