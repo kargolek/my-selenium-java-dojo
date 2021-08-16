@@ -8,8 +8,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               sh 'export AUTOMATION_MACHINE=CI'
-               sh 'env'
                sh 'mvn -B -DskipTests clean package'
             }
         }
