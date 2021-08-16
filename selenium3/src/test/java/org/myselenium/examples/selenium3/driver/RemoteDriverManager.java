@@ -10,6 +10,6 @@ public class RemoteDriverManager extends ChromeDriverManager {
 
     @Override
     public WebDriver getDriver() throws MalformedURLException {
-        return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), this.chromeOptions);
+        return new RemoteWebDriver(new URL("http://192.168.1.12:4444/wd/hub"), this.chromeOptions);
     }
 }

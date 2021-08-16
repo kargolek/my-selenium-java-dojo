@@ -18,7 +18,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'curl http://localhost:4444/wd/hub/status/'
+                sh 'curl http://192.168.1.12:4444/wd/hub/status/'
                 sh 'mvn test -pl selenium3'
             }
 
