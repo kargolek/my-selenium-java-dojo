@@ -1,4 +1,4 @@
-package org.myselenium.examples.selenium3.driver;
+package org.myselenium.examples.selenium3.driver.manager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
