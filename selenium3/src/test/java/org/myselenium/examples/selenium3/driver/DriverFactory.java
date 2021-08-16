@@ -16,10 +16,10 @@ public class DriverFactory {
                         .getDriver();
             default:
                 return new ChromeDriverManager()
-                        .setFullWindowSize()
-                        .setHeadlessMode()
+                        //.setFullWindowSize()
+                        //.setHeadlessMode()
                         .setIgnoreCertErrors()
-                        .setDisabledGPU()
+                        //.setDisabledGPU()
                         .getDriver();
         }
     }
