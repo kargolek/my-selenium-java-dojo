@@ -14,7 +14,7 @@ public class BaseTest {
 
     @BeforeEach
     public void setup() throws MalformedURLException {
-        webDriver = DriverFactory.getDriver(DriverType.CHROME);
+        webDriver = DriverFactory.getDriver();
     }
 
     @AfterEach

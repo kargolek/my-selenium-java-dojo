@@ -24,6 +24,6 @@ public class DriverFactory {
     }
 
     public static WebDriver getDriver() throws MalformedURLException {
-        return System.getenv("CI").equals("true") ? getDriver(DriverType.REMOTE) : getDriver(DriverType.CHROME);
+        return getDriver(DriverType.REMOTE);
     }
 }
