@@ -4,6 +4,7 @@ pipeline {
         maven 'maven_home'
         jdk 'jdk'
     }
+
     stages {
         stage('Build') {
             steps {
@@ -13,12 +14,13 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'mvn test -pl selenium3.x'
+                sh 'curl http://192.168.1.12:4444/wd/hub/status/'
+                sh 'mvn test -pl selenium3'
             }
 
             post {
                 always {
-                    junit 'selenium3.x/target/surefire-reports/*.xml'
+                    junit 'selenium3/target/surefire-reports/*.xml'
                 }
             }
         }
