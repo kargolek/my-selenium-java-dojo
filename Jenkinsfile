@@ -12,7 +12,6 @@ pipeline {
             }
         }
 
-    stages {
         stage('Chrome Test') {
             steps {
                sh 'curl http://192.168.1.12:4444/wd/hub/status/'
