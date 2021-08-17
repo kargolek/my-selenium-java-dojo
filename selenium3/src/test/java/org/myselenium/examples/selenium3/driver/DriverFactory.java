@@ -44,9 +44,9 @@ public class DriverFactory {
                         .getDriver();
             case REMOTE_FIREFOX:
                 WebDriver remoteFirefoxDriver = new RemoteFirefoxDriverManager()
-                        .setIgnoreCertErrors()
+                        //.setIgnoreCertErrors()
                         .getDriver();
-                remoteFirefoxDriver.manage().window().maximize();
+                //remoteFirefoxDriver.manage().window().maximize();
                 return remoteFirefoxDriver;
             case FIREFOX:
                 WebDriver firefoxDriver = new FirefoxDriverManager()
