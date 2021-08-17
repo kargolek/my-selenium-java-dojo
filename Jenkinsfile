@@ -12,10 +12,23 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Chrome Test') {
             steps {
                 sh 'curl http://192.168.1.12:4444/wd/hub/status/'
-                sh 'mvn test -pl selenium3'
+                sh 'mvn test -pl selenium3 -DdriverType=CHROME'
+            }
+
+            post {
+                always {
+                    junit 'selenium3/target/surefire-reports/*.xml'
+                }
+            }
+        }
+
+        stage('Firefox Test') {
+            steps {
+                sh 'curl http://192.168.1.12:4444/wd/hub/status/'
+                sh 'mvn test -pl selenium3 -DdriverType=FIREFOX'
             }
 
             post {
