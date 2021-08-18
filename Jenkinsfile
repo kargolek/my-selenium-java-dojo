@@ -11,6 +11,8 @@ pipeline {
                sh 'docker-compose -f up -d'
                sh 'mvn -B -DskipTests clean package'
             }
+
+            step([$class: 'DockerComposeBuilder'])
         }
 
         stage('Chrome Test') {
