@@ -22,6 +22,11 @@ public class ExampleTests extends BaseTest {
         webDriver = new DriverFactory().getDriver(new ChromeOptions());
     }
 
+    @AfterEach
+    public void tearDownTest() {
+        webDriver.quit();
+    }
+
     @Test
     public void welcomeTest() throws InterruptedException {
         webDriver.get("http://www.google.com");
