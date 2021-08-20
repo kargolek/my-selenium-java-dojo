@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.DisabledIf;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.myselenium.examples.selenium3.base.BaseTest;
@@ -36,7 +37,7 @@ public class ExampleTests {
     }
 
     @Test
-    @DisabledIf("java.lang.System.getProperty('driverType').toLowerCase().contains('firefox')")
+    @DisabledIfSystemProperty(named = "driverType", matches = "REMOTE_FIREFOX")
     public void welcomeTest2() throws InterruptedException {
         webDriver.get("http://www.google.com");
         Thread.sleep(5000);
