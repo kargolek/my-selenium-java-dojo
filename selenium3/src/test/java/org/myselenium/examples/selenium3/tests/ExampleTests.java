@@ -1,6 +1,7 @@
 package org.myselenium.examples.selenium3.tests;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
@@ -16,7 +17,7 @@ public class ExampleTests extends BaseTest {
 
     private WebDriver webDriver;
 
-    @AfterEach
+    @BeforeEach
     public void setup() throws MalformedURLException {
         webDriver = new DriverFactory().getDriver(new ChromeOptions());
     }
