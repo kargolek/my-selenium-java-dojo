@@ -1,29 +1,38 @@
 package org.myselenium.examples.selenium3.driver.manager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.net.MalformedURLException;
 
-public class FirefoxDriverManager {
+public class FirefoxDriverManager implements DriverManagerImpl{
 
-    final FirefoxOptions firefoxOptions = new FirefoxOptions();
+    final FirefoxOptions FIREFOX_OPTIONS = new FirefoxOptions();
 
     public WebDriver getDriver() throws MalformedURLException {
         WebDriverManager.firefoxdriver().setup();
-        return new FirefoxDriver(this.firefoxOptions);
+        return new FirefoxDriver(this.FIREFOX_OPTIONS);
+    }
+
+    @Override
+    public WebDriver getDriver(MutableCapabilities mutableCapabilities) throws MalformedURLException {
+        FirefoxOptions firefoxOptions = (FirefoxOptions) mutableCapabilities;
+        WebDriverManager.firefoxdriver().setup();
+        return new FirefoxDriver(firefoxOptions);
     }
 
     public FirefoxDriverManager setIgnoreCertErrors() {
-        this.firefoxOptions.addArguments("--ignore-certificate-error");
+        this.FIREFOX_OPTIONS.addArguments("--ignore-certificate-error");
         return this;
     }
 
+    @Override
     public FirefoxDriverManager setHeadlessMode() {
-        this.firefoxOptions.addArguments("--headless");
+        this.FIREFOX_OPTIONS.addArguments("--headless");
         return this;
     }
-
 }

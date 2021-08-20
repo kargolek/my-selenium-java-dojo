@@ -8,7 +8,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               sh 'docker-compose -f up -d'
                sh 'mvn -B -DskipTests clean package'
             }
         }
@@ -16,14 +15,14 @@ pipeline {
         stage('Chrome Test') {
             steps {
                sh 'curl http://192.168.1.12:4444/wd/hub/status/'
-               sh 'mvn test -pl selenium3 -DdriverType=CHROME'
+               sh 'mvn test -pl selenium3 -DdriverType=REMOTE_CHROME'
             }
         }
 
         stage('Firefox Test') {
             steps {
                sh 'curl http://192.168.1.12:4444/wd/hub/status/'
-               sh 'mvn test -pl selenium3 -DdriverType=FIREFOX'
+               sh 'mvn test -pl selenium3 -DdriverType=REMOTE_FIREFOX'
             }
         }
     }

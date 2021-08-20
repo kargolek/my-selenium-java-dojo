@@ -4,49 +4,35 @@ import org.myselenium.examples.selenium3.driver.manager.ChromeDriverManager;
 import org.myselenium.examples.selenium3.driver.manager.FirefoxDriverManager;
 import org.myselenium.examples.selenium3.driver.manager.RemoteChromeDriverManager;
 import org.myselenium.examples.selenium3.driver.manager.RemoteFirefoxDriverManager;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.net.MalformedURLException;
 import java.util.Optional;
 
 public class DriverFactory {
 
-    public static WebDriver getDriver() throws MalformedURLException {
-        final String isEnvCI = Optional.ofNullable(System.getenv("CI")).orElse("false");
+    private final String HUB_URL = "http://192.168.1.12:4444/wd/hub/";
+
+    public WebDriver getDriver() throws MalformedURLException {
         final String driverType = Optional.ofNullable(System.getProperty("driverType")).orElse("CHROME");
-
-        return isEnvCI.equalsIgnoreCase("true")
-                ? getRemoteDriver(driverType) : getLocalDriver(driverType);
+        return getDriver(driverType);
     }
 
-    private static WebDriver getRemoteDriver(String type) throws MalformedURLException {
-        if ("FIREFOX".equalsIgnoreCase(type)) {
-            return getDriver(DriverType.REMOTE_FIREFOX);
-        }
-
-        return getDriver(DriverType.REMOTE_CHROME);
-    }
-
-    private static WebDriver getLocalDriver(String type) throws MalformedURLException {
-        if ("FIREFOX".equalsIgnoreCase(type)) {
-            return getDriver(DriverType.FIREFOX);
-        }
-
-        return getDriver(DriverType.CHROME);
-    }
-
-    public static WebDriver getDriver(DriverType driverType) throws MalformedURLException {
-        switch (driverType) {
+    public WebDriver getDriver(String driverType) throws MalformedURLException {
+        switch (DriverType.valueOf(driverType)) {
             case REMOTE_CHROME:
-                return new RemoteChromeDriverManager()
+                return new RemoteChromeDriverManager(this.HUB_URL)
                         .setFullWindowSize()
                         .setIgnoreCertErrors()
                         .getDriver();
             case REMOTE_FIREFOX:
-                WebDriver remoteFirefoxDriver = new RemoteFirefoxDriverManager()
-                        //.setIgnoreCertErrors()
+                WebDriver remoteFirefoxDriver = new RemoteFirefoxDriverManager(this.HUB_URL)
+                        .setIgnoreCertErrors()
                         .getDriver();
-                //remoteFirefoxDriver.manage().window().maximize();
+                remoteFirefoxDriver.manage().window().maximize();
                 return remoteFirefoxDriver;
             case FIREFOX:
                 WebDriver firefoxDriver = new FirefoxDriverManager()
@@ -59,6 +45,24 @@ public class DriverFactory {
                         .setFullWindowSize()
                         .setIgnoreCertErrors()
                         .getDriver();
+        }
+    }
+
+    public WebDriver getDriver(MutableCapabilities options) throws MalformedURLException {
+        final String driverType = Optional.ofNullable(System.getProperty("driverType")).orElse("CHROME");
+        return getDriver(driverType, options);
+    }
+
+    public WebDriver getDriver(String driverType, MutableCapabilities options) throws MalformedURLException {
+        switch (DriverType.valueOf(driverType)) {
+            case REMOTE_CHROME:
+                return new RemoteChromeDriverManager(this.HUB_URL).getDriver(options);
+            case REMOTE_FIREFOX:
+                return new RemoteFirefoxDriverManager(this.HUB_URL).getDriver(options);
+            case FIREFOX:
+                return new FirefoxDriverManager().getDriver(options);
+            default:
+                return new ChromeDriverManager().getDriver(options);
         }
     }
 }
