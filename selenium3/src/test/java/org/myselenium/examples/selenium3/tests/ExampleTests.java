@@ -3,6 +3,7 @@ package org.myselenium.examples.selenium3.tests;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledIf;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.myselenium.examples.selenium3.base.BaseTest;
@@ -13,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.net.MalformedURLException;
 
 
-public class ExampleTests extends BaseTest {
+public class ExampleTests {
 
     private WebDriver webDriver;
 
@@ -28,12 +29,14 @@ public class ExampleTests extends BaseTest {
     }
 
     @Test
+    @DisabledIf("java.lang.System.getProperty('driverType').toLowerCase().contains('firefox')")
     public void welcomeTest() throws InterruptedException {
         webDriver.get("http://www.google.com");
         Thread.sleep(5000);
     }
 
     @Test
+    @DisabledIf("java.lang.System.getProperty('driverType').toLowerCase().contains('firefox')")
     public void welcomeTest2() throws InterruptedException {
         webDriver.get("http://www.google.com");
         Thread.sleep(5000);
