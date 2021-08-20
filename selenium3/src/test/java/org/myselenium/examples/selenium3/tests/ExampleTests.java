@@ -1,12 +1,25 @@
 package org.myselenium.examples.selenium3.tests;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.myselenium.examples.selenium3.base.BaseTest;
+import org.myselenium.examples.selenium3.driver.DriverFactory;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.net.MalformedURLException;
 
 
 public class ExampleTests extends BaseTest {
+
+    private WebDriver webDriver;
+
+    @AfterEach
+    public void setup() throws MalformedURLException {
+        webDriver = new DriverFactory().getDriver(new ChromeOptions());
+    }
 
     @Test
     public void welcomeTest() throws InterruptedException {
