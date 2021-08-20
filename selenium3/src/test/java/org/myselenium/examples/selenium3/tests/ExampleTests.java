@@ -30,7 +30,7 @@ public class ExampleTests {
     }
 
     @Test
-    @DisabledIf("java.lang.System.getProperty('driverType').toLowerCase().contains('firefox')")
+    @DisabledIfSystemProperty(named = "driverType", matches = "REMOTE_FIREFOX")
     public void welcomeTest() throws InterruptedException {
         webDriver.get("http://www.google.com");
         Thread.sleep(5000);
