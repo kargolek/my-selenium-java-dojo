@@ -1,10 +1,10 @@
 package org.myselenium.examples.selenium3.tests;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.myselenium.examples.selenium3.base.BaseTest;
-
+/**
+ * @author Karol Kuta-Orlowicz
+ */
 public class NewTests extends BaseTest {
 
     @Test

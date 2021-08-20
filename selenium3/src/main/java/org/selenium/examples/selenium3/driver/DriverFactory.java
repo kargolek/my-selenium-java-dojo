@@ -1,17 +1,17 @@
-package org.myselenium.examples.selenium3.driver;
+package org.selenium.examples.selenium3.driver;
 
-import org.myselenium.examples.selenium3.driver.manager.ChromeDriverManager;
-import org.myselenium.examples.selenium3.driver.manager.FirefoxDriverManager;
-import org.myselenium.examples.selenium3.driver.manager.RemoteChromeDriverManager;
-import org.myselenium.examples.selenium3.driver.manager.RemoteFirefoxDriverManager;
+import org.selenium.examples.selenium3.driver.manager.ChromeDriverManager;
+import org.selenium.examples.selenium3.driver.manager.FirefoxDriverManager;
+import org.selenium.examples.selenium3.driver.manager.RemoteChromeDriverManager;
+import org.selenium.examples.selenium3.driver.manager.RemoteFirefoxDriverManager;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.net.MalformedURLException;
 import java.util.Optional;
-
+/**
+ * @author Karol Kuta-Orlowicz
+ */
 public class DriverFactory {
 
     private final String HUB_URL = "http://192.168.1.12:4444/wd/hub/";

@@ -2,12 +2,14 @@ package org.myselenium.examples.selenium3.base;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.myselenium.examples.selenium3.driver.DriverFactory;
-import org.myselenium.examples.selenium3.driver.DriverType;
 import org.openqa.selenium.WebDriver;
+import org.selenium.examples.selenium3.driver.DriverFactory;
 
 import java.net.MalformedURLException;
 
+/**
+ * @author Karol Kuta-Orlowicz
+ */
 public class BaseTest {
 
     public WebDriver webDriver;
@@ -18,7 +20,7 @@ public class BaseTest {
     }
 
     @AfterEach
-    public void tearDownTest(){
+    public void tearDownTest() {
         webDriver.quit();
     }
 

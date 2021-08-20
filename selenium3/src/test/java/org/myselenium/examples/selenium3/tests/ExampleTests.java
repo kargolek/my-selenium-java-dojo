@@ -3,18 +3,16 @@ package org.myselenium.examples.selenium3.tests;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.condition.DisabledIf;
 import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
-import org.myselenium.examples.selenium3.base.BaseTest;
-import org.myselenium.examples.selenium3.driver.DriverFactory;
+import org.selenium.examples.selenium3.driver.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.net.MalformedURLException;
 
-
+/**
+ * @author Karol Kuta-Orlowicz
+ */
 public class ExampleTests {
 
     private WebDriver webDriver;
