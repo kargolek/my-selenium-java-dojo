@@ -19,10 +19,4 @@ public class ExampleTests extends BaseTest {
         webDriver.get("http://www.google.com");
         Thread.sleep(5000);
     }
-
-    @Test
-    public void welcomeTest3() throws InterruptedException {
-        webDriver.get("http://www.google.com");
-        Thread.sleep(5000);
-    }
 }
