@@ -4,6 +4,8 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.myselenium.examples.selenium3.tests.BaseTest;
 import org.selenium.examples.selenium3.pages.herokuapp.HerokuAppLandPage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -31,9 +33,9 @@ public class DisableByConditionsExampleTest extends BaseTest {
     }
 
     /**
-     *  An example of disable a test scenario when condition met: system property match with given key.
-     *  In below case, test will be skipped on CI for Firefox node because, we run test on stage by command:
-     *  sh 'mvn test -pl selenium3 -DdriverType=REMOTE_FIREFOX'
+     * An example of disable a test scenario when condition met: system property match with given key.
+     * In below case, test will be skipped on CI for Firefox node because, we run test on stage by command:
+     * sh 'mvn test -pl selenium3 -DdriverType=REMOTE_FIREFOX'
      */
     @Test
     @DisplayName("Verify AB Testing is display")
