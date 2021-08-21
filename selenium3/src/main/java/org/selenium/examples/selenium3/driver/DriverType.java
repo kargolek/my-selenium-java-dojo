@@ -1,5 +1,8 @@
-package org.myselenium.examples.selenium3.driver;
+package org.selenium.examples.selenium3.driver;
 
+/**
+ * @author Karol Kuta-Orlowicz
+ */
 public enum DriverType {
     CHROME,
     FIREFOX,

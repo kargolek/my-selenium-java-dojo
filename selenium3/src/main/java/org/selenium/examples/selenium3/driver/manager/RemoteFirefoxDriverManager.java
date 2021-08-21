@@ -1,14 +1,16 @@
-package org.myselenium.examples.selenium3.driver.manager;
+package org.selenium.examples.selenium3.driver.manager;
 
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * @author Karol Kuta-Orlowicz
+ */
 public class RemoteFirefoxDriverManager extends FirefoxDriverManager {
 
     private final String HUB_URL;

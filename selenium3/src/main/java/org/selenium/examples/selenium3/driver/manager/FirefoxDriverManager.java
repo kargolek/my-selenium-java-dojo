@@ -1,15 +1,17 @@
-package org.myselenium.examples.selenium3.driver.manager;
+package org.selenium.examples.selenium3.driver.manager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.net.MalformedURLException;
 
-public class FirefoxDriverManager implements DriverManagerImpl{
+/**
+ * @author Karol Kuta-Orlowicz
+ */
+public class FirefoxDriverManager implements DriverManagerImpl {
 
     final FirefoxOptions FIREFOX_OPTIONS = new FirefoxOptions();
 

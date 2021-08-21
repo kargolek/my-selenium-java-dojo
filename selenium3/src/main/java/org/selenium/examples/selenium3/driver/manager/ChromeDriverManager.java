@@ -1,7 +1,6 @@
-package org.myselenium.examples.selenium3.driver.manager;
+package org.selenium.examples.selenium3.driver.manager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,6 +8,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.net.MalformedURLException;
 
+/**
+ * @author Karol Kuta-Orlowicz
+ */
 public class ChromeDriverManager implements DriverManagerImpl {
 
     final ChromeOptions CHROME_OPTIONS = new ChromeOptions();
