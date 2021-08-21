@@ -1,7 +1,8 @@
-package org.myselenium.examples.selenium3.base;
+package org.myselenium.examples.selenium3.tests;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.TestInstance;
 import org.openqa.selenium.WebDriver;
 import org.selenium.examples.selenium3.driver.DriverFactory;
 
@@ -10,16 +11,18 @@ import java.net.MalformedURLException;
 /**
  * @author Karol Kuta-Orlowicz
  */
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BaseTest {
 
     public WebDriver webDriver;
 
-    @BeforeEach
+    @BeforeAll
     public void setup() throws MalformedURLException {
-        webDriver = new DriverFactory().getDriver();
+        this.webDriver = new DriverFactory().getDriver();
     }
 
-    @AfterEach
+    @AfterAll
     public void tearDownTest() {
         webDriver.quit();
     }

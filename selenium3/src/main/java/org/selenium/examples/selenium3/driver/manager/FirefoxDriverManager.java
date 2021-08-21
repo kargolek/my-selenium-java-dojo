@@ -7,10 +7,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.net.MalformedURLException;
+
 /**
  * @author Karol Kuta-Orlowicz
  */
-public class FirefoxDriverManager implements DriverManagerImpl{
+public class FirefoxDriverManager implements DriverManagerImpl {
 
     final FirefoxOptions FIREFOX_OPTIONS = new FirefoxOptions();
 

@@ -1,14 +1,15 @@
 package org.selenium.examples.selenium3.driver;
 
+import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.WebDriver;
 import org.selenium.examples.selenium3.driver.manager.ChromeDriverManager;
 import org.selenium.examples.selenium3.driver.manager.FirefoxDriverManager;
 import org.selenium.examples.selenium3.driver.manager.RemoteChromeDriverManager;
 import org.selenium.examples.selenium3.driver.manager.RemoteFirefoxDriverManager;
-import org.openqa.selenium.MutableCapabilities;
-import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
 import java.util.Optional;
+
 /**
  * @author Karol Kuta-Orlowicz
  */

@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.net.MalformedURLException;
+
 /**
  * @author Karol Kuta-Orlowicz
  */
