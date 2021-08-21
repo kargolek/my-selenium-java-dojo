@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
 import org.openqa.selenium.WebDriver;
 import org.selenium.examples.selenium3.driver.DriverFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.MalformedURLException;
 
@@ -16,15 +18,18 @@ import java.net.MalformedURLException;
 public class BaseTest {
 
     public WebDriver webDriver;
+    private static final Logger logger = LoggerFactory.getLogger(BaseTest.class);
 
     @BeforeAll
-    public void setup() throws MalformedURLException {
+    public void setupAll() throws MalformedURLException {
         this.webDriver = new DriverFactory().getDriver();
+        logger.info("Init webdriver for:" + getClass().getName());
     }
 
     @AfterAll
-    public void tearDownTest() {
+    public void tearDownAll() {
         webDriver.quit();
+        logger.info("Tear down webdriver for: " + getClass().getName());
     }
 
 }

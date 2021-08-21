@@ -6,6 +6,8 @@ import org.selenium.examples.selenium3.driver.manager.ChromeDriverManager;
 import org.selenium.examples.selenium3.driver.manager.FirefoxDriverManager;
 import org.selenium.examples.selenium3.driver.manager.RemoteChromeDriverManager;
 import org.selenium.examples.selenium3.driver.manager.RemoteFirefoxDriverManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.MalformedURLException;
 import java.util.Optional;
@@ -16,9 +18,11 @@ import java.util.Optional;
 public class DriverFactory {
 
     private final String HUB_URL = "http://192.168.1.12:4444/wd/hub/";
+    private static final Logger logger = LoggerFactory.getLogger(DriverFactory.class);
 
     public WebDriver getDriver() throws MalformedURLException {
         final String driverType = Optional.ofNullable(System.getProperty("driverType")).orElse("CHROME");
+        logger.info("Try get driver for browser type: " + driverType);
         return getDriver(driverType);
     }
 
@@ -51,6 +55,7 @@ public class DriverFactory {
 
     public WebDriver getDriver(MutableCapabilities options) throws MalformedURLException {
         final String driverType = Optional.ofNullable(System.getProperty("driverType")).orElse("CHROME");
+        logger.info("Try get driver for browser type: " + driverType);
         return getDriver(driverType, options);
     }
 
