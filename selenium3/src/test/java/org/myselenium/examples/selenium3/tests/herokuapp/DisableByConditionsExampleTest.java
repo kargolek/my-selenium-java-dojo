@@ -41,6 +41,6 @@ public class DisableByConditionsExampleTest extends BaseTest {
     @DisplayName("Verify AB Testing is display")
     @DisabledIfSystemProperty(named = "driverType", matches = "REMOTE_FIREFOX")
     public void shouldDisplayABTestingHref() {
-        assertTrue(herokuAppLandPage.isAbTestingDisplay());
+        assertFalse(herokuAppLandPage.isAbTestingDisplay());
     }
 }
