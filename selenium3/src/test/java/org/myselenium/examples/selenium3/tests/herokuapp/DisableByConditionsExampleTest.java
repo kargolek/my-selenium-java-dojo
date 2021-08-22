@@ -7,7 +7,7 @@ import org.selenium.examples.selenium3.pages.herokuapp.HerokuAppLandPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Karol Kuta-Orlowicz
@@ -43,4 +43,12 @@ public class DisableByConditionsExampleTest extends BaseTest {
     public void shouldDisplayABTestingHref() {
         assertTrue(herokuAppLandPage.isAbTestingDisplay());
     }
+
+    @Test
+    @DisplayName("Verify Add/Remove elements is display")
+    @DisabledIfSystemProperty(named = "driverType", matches = "REMOTE_FIREFOX")
+    public void shouldDisplayAddRemoveHref() {
+        assertTrue(herokuAppLandPage.isAddRemoveElementDisplay());
+    }
+
 }
