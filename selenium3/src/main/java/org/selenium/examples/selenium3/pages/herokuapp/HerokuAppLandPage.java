@@ -36,4 +36,8 @@ public class HerokuAppLandPage extends BasePage {
     public boolean isAbTestingDisplay() {
         return waitForVisibility(abTestingHref, WaitTime.MEDIUM).isDisplayed();
     }
+
+    public boolean isAddRemoveElementDisplay(){
+        return waitForVisibility(addRemoveElementHref, WaitTime.MEDIUM).isDisplayed();
+    }
 }

@@ -43,4 +43,12 @@ public class DisableByConditionsExampleTest extends BaseTest {
     public void shouldDisplayABTestingHref() {
         assertTrue(herokuAppLandPage.isAbTestingDisplay());
     }
+
+    @Test
+    @DisplayName("Verify Add/Remove elements is display")
+    @DisabledIfSystemProperty(named = "driverType", matches = "REMOTE_FIREFOX")
+    public void shouldDisplayAddRemoveHref() {
+        assertTrue(herokuAppLandPage.isAddRemoveElementDisplay());
+    }
+
 }
