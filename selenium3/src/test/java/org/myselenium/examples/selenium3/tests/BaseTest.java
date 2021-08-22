@@ -3,7 +3,9 @@ package org.myselenium.examples.selenium3.tests;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
+import org.selenium.examples.selenium3.testWatchers.PrintableTestExecutionResults;
 import org.selenium.examples.selenium3.driver.DriverFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +17,7 @@ import java.net.MalformedURLException;
  */
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@ExtendWith(PrintableTestExecutionResults.class)
 public class BaseTest {
 
     public WebDriver webDriver;
