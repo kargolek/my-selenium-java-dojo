@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @TestInstance(TestInstance.Lifecycle.PER_CLASS) annotation allow us to provide non-static method for @BeforeAll methods
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class DisableByConditionsExampleTestSecondThread extends BaseTest {
+public class SecondThreadTest extends BaseTest {
 
     private HerokuAppLandPage herokuAppLandPage;
 
