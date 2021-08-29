@@ -19,7 +19,7 @@ pipeline {
             }
             post {
                 always {
-                    archiveArtifacts artifacts:'selenium3/target/allure-results'
+                    archiveArtifacts artifacts:'selenium3/target/allure-results/**/*.*'
                 }
             }
         }
