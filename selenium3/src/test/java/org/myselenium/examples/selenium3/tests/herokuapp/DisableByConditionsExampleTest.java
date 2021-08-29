@@ -5,7 +5,6 @@ import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.myselenium.examples.selenium3.tests.BaseTest;
 import org.selenium.examples.selenium3.pages.herokuapp.HerokuAppLandPage;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -47,7 +46,7 @@ public class DisableByConditionsExampleTest extends BaseTest {
     @DisplayName("Verify Add/Remove Elements is display")
     @DisabledIfSystemProperty(named = "driverType", matches = "REMOTE_FIREFOX")
     public void shouldDisplayAddRemoveHref() {
-        assertFalse(herokuAppLandPage.isAddRemoveElementDisplay());
+        assertTrue(herokuAppLandPage.isAddRemoveElementDisplay());
     }
 
 }
