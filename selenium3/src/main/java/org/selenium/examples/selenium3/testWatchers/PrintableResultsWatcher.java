@@ -10,9 +10,9 @@ import java.util.Optional;
 /**
  * @author Karol Kuta-Orlowicz
  */
-public class PrintableTestExecutionResults implements TestWatcher {
+public class PrintableResultsWatcher implements TestWatcher {
 
-    private static final Logger logger = LoggerFactory.getLogger(PrintableTestExecutionResults.class);
+    private static final Logger logger = LoggerFactory.getLogger(PrintableResultsWatcher.class);
 
     @Override
     public void testSuccessful(ExtensionContext context) {
@@ -36,7 +36,6 @@ public class PrintableTestExecutionResults implements TestWatcher {
         logger.error(String.format("TEST ABORTED:\nClassName -> %s\nMethodName -> %s\nDisplayName -> %s\nCause:\n%s",
                 context.getRequiredTestClass().getSimpleName(), context.getRequiredTestMethod().getName(),
                 context.getDisplayName(), cause));
-
     }
 
     @Override

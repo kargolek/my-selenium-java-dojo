@@ -5,8 +5,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
-import org.selenium.examples.selenium3.testWatchers.PrintableTestExecutionResults;
 import org.selenium.examples.selenium3.driver.DriverFactory;
+import org.selenium.examples.selenium3.testWatchers.PrintableResultsWatcher;
+import org.selenium.examples.selenium3.testWatchers.ScreenshotsFailuresWatcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,11 +18,12 @@ import java.net.MalformedURLException;
  */
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@ExtendWith(PrintableTestExecutionResults.class)
-public class BaseTest {
+@ExtendWith(PrintableResultsWatcher.class)
+@ExtendWith(ScreenshotsFailuresWatcher.class)
+public abstract class BaseTest {
 
-    public WebDriver webDriver;
     private static final Logger logger = LoggerFactory.getLogger(BaseTest.class);
+    public WebDriver webDriver;
 
     @BeforeAll
     public void setupAll() throws MalformedURLException {
