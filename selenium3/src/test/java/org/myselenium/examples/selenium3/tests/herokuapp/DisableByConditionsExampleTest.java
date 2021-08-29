@@ -1,9 +1,15 @@
 package org.myselenium.examples.selenium3.tests.herokuapp;
 
-import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Stories;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.myselenium.examples.selenium3.tests.BaseTest;
 import org.selenium.examples.selenium3.pages.herokuapp.HerokuAppLandPage;
+
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -11,11 +17,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author Karol Kuta-Orlowicz
  */
 
-@DisplayName("An example for disable test by condition")
 /**
  * @TestInstance(TestInstance.Lifecycle.PER_CLASS) annotation allow us to provide non-static method for @BeforeAll methods
  */
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@Epic("Smoke tests")
+//@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class DisableByConditionsExampleTest extends BaseTest {
 
     private HerokuAppLandPage herokuAppLandPage;
@@ -36,15 +42,16 @@ public class DisableByConditionsExampleTest extends BaseTest {
      * sh 'mvn test -pl selenium3 -DdriverType=REMOTE_FIREFOX'
      */
     @Test
-    @DisplayName("Verify AB Testing is display")
-    @DisabledIfSystemProperty(named = "driverType", matches = "REMOTE_FIREFOX")
+    //@DisabledIfSystemProperty(named = "driverType", matches = "FIREFOX")
     public void shouldDisplayABTestingHref() {
+        if (Optional.ofNullable(System.getProperty("driverType")).orElse("CHROME").equalsIgnoreCase("chrome")) {
+            assertTrue(false);
+        }
         assertTrue(herokuAppLandPage.isAbTestingDisplay());
     }
 
     @Test
-    @DisplayName("Verify Add/Remove Elements is display")
-    @DisabledIfSystemProperty(named = "driverType", matches = "REMOTE_FIREFOX")
+    //@DisabledIfSystemProperty(named = "driverType", matches = "FIREFOX")
     public void shouldDisplayAddRemoveHref() {
         assertTrue(herokuAppLandPage.isAddRemoveElementDisplay());
     }
