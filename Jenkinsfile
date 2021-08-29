@@ -16,7 +16,6 @@ pipeline {
             steps {
                sh 'curl http://192.168.1.12:4444/wd/hub/status/'
                sh 'mvn test -pl selenium3 -DdriverType=REMOTE_CHROME'
-               sh 'mvn surefire:test -pl selenium3 -DdriverType=REMOTE_CHROME'
             }
             post {
                 always {
