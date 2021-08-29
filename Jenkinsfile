@@ -20,15 +20,7 @@ pipeline {
             }
             post {
                 always {
-                    script {
-                        allure([
-                            includeProperties: false,
-                            jdk: '',
-                            properties: [],
-                            reportBuildPolicy: 'ALWAYS',
-                            results: [[path: 'selenium3/target/allure-results']]
-                        ])
-                    }
+                    archiveArtifacts artifacts:'target/allure-results'
                 }
             }
         }
@@ -39,6 +31,7 @@ pipeline {
                     }
                     post {
                         always {
+                            unarchive mapping: ['target/allure-results' : 'target/allure-results2']
                             script {
                                 allure([
                                     includeProperties: false,
