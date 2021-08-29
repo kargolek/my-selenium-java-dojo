@@ -30,7 +30,6 @@ pipeline {
                     }
                     post {
                         always {
-                            unarchive mapping: ['target/allure-results' : 'target/allure-results2']
                             script {
                                 allure([
                                     includeProperties: false,
