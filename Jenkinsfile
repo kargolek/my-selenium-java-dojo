@@ -19,11 +19,6 @@ pipeline {
                fileOperations([fileRenameOperation(destination: 'selenium3/target/allure-results2', source: 'selenium3/target/allure-results')])
 
             }
-            post {
-                always {
-                    archiveArtifacts artifacts:'selenium3/target/allure-results/**/*.*'
-                }
-            }
         }
         stage('Firefox Test') {
                     steps {
@@ -38,7 +33,7 @@ pipeline {
                                     jdk: '',
                                     properties: [],
                                     reportBuildPolicy: 'ALWAYS',
-                                    results: [[path: 'selenium3/target/allure-results']]
+                                    results: [[path: 'selenium3/target/allure-results'], [path: 'selenium3/target/allure-results2']]
                                 ])
                             }
                         }
