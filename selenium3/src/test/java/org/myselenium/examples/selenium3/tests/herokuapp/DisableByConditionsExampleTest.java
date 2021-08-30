@@ -9,6 +9,7 @@ import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.myselenium.examples.selenium3.tests.BaseTest;
 import org.selenium.examples.selenium3.pages.herokuapp.HerokuAppLandPage;
 
+import static junit.framework.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -42,7 +43,7 @@ public class DisableByConditionsExampleTest extends BaseTest {
     @Test
     @DisabledIfSystemProperty(named = "driverType", matches = "REMOTE_FIREFOX")
     public void shouldDisplayABTestingHref() {
-        assertTrue(herokuAppLandPage.isAbTestingDisplay());
+        assertFalse(herokuAppLandPage.isAbTestingDisplay());
     }
 
     @Test
