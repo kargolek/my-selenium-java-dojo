@@ -18,6 +18,8 @@
         <maven-surefire-plugin>3.0.0-M5</maven-surefire-plugin>
         <maven-compiler-plugin>3.8.0</maven-compiler-plugin>
         <webdrivermanager>4.4.3</webdrivermanager>
+        <allure.version>2.14.0</allure.version>
+        <allure.maven.version>2.10.0</allure.maven.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -46,6 +48,16 @@
                 <artifactId>slf4j-simple</artifactId>
                 <version>1.7.32</version>
             </dependency>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-junit5</artifactId>
+                <version>${allure.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.maven.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
@@ -63,6 +75,11 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.maven.version}</version>
             </plugin>
         </plugins>
     </build>

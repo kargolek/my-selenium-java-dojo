@@ -1,22 +1,24 @@
 package org.myselenium.examples.selenium3.tests.herokuapp;
 
-import org.junit.jupiter.api.*;
+import io.qameta.allure.Epic;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.myselenium.examples.selenium3.tests.BaseTest;
 import org.selenium.examples.selenium3.pages.herokuapp.HerokuAppLandPage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Karol Kuta-Orlowicz
  */
 
-@DisplayName("An example for disable test by condition")
 /**
  * @TestInstance(TestInstance.Lifecycle.PER_CLASS) annotation allow us to provide non-static method for @BeforeAll methods
  */
+@Epic("Smoke tests")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class DisableByConditionsExampleTest extends BaseTest {
 
@@ -38,14 +40,12 @@ public class DisableByConditionsExampleTest extends BaseTest {
      * sh 'mvn test -pl selenium3 -DdriverType=REMOTE_FIREFOX'
      */
     @Test
-    @DisplayName("Verify AB Testing is display")
     @DisabledIfSystemProperty(named = "driverType", matches = "REMOTE_FIREFOX")
     public void shouldDisplayABTestingHref() {
         assertTrue(herokuAppLandPage.isAbTestingDisplay());
     }
 
     @Test
-    @DisplayName("Verify Add/Remove elements is display")
     @DisabledIfSystemProperty(named = "driverType", matches = "REMOTE_FIREFOX")
     public void shouldDisplayAddRemoveHref() {
         assertTrue(herokuAppLandPage.isAddRemoveElementDisplay());
