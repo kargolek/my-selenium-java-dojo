@@ -18,18 +18,6 @@ pipeline {
                 sh 'mvn test -pl selenium3 -DdriverType=REMOTE_CHROME'
                 fileOperations([fileRenameOperation(destination: 'selenium3/target/allure-results2', source: 'selenium3/target/allure-results')])
             }
-            post {
-                always {
-                    script {
-                        allure([includeProperties: false,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [[path: 'selenium3/target/allure-results2']]
-                        ])
-                    }
-                }
-            }
         }
 
         stage('Firefox Test') {
@@ -44,12 +32,11 @@ pipeline {
                         jdk: '',
                         properties: [],
                         reportBuildPolicy: 'ALWAYS',
-                        results: [[path: 'selenium3/target/allure-results']]
+                        results: [[path: 'selenium3/target/allure-results2'], [path: 'selenium3/target/allure-results']]
                         ])
                     }
                 }
             }
         }
-
     }
 }
