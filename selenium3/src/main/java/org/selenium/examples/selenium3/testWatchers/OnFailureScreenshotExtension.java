@@ -13,9 +13,9 @@ import java.io.ByteArrayInputStream;
 /**
  * @author Karol Kuta-Orlowicz
  */
-public class ScreenshotsFailuresWatcher extends TestWatcherBase implements TestWatcher {
+public class OnFailureScreenshotExtension extends TestWatcherBase implements TestWatcher {
 
-    private final static Logger logger = LoggerFactory.getLogger(ScreenshotsFailuresWatcher.class);
+    private final static Logger logger = LoggerFactory.getLogger(OnFailureScreenshotExtension.class);
 
     @Override
     public void testFailed(ExtensionContext context, Throwable cause) {

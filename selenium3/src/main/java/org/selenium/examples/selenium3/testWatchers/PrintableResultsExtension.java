@@ -10,9 +10,9 @@ import java.util.Optional;
 /**
  * @author Karol Kuta-Orlowicz
  */
-public class PrintableResultsWatcher implements TestWatcher {
+public class PrintableResultsExtension implements TestWatcher {
 
-    private static final Logger logger = LoggerFactory.getLogger(PrintableResultsWatcher.class);
+    private static final Logger logger = LoggerFactory.getLogger(PrintableResultsExtension.class);
 
     @Override
     public void testSuccessful(ExtensionContext context) {
