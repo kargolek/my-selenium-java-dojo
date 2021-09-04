@@ -6,8 +6,9 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 import org.selenium.examples.selenium3.driver.DriverFactory;
-import org.selenium.examples.selenium3.testWatchers.PrintableResultsExtension;
+import org.selenium.examples.selenium3.testWatchers.AllureChromeLogsExtension;
 import org.selenium.examples.selenium3.testWatchers.OnFailureScreenshotExtension;
+import org.selenium.examples.selenium3.testWatchers.PrintableResultsExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,6 +21,7 @@ import java.net.MalformedURLException;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @ExtendWith(PrintableResultsExtension.class)
 @ExtendWith(OnFailureScreenshotExtension.class)
+@ExtendWith(AllureChromeLogsExtension.class)
 public abstract class BaseTest {
 
     private static final Logger logger = LoggerFactory.getLogger(BaseTest.class);

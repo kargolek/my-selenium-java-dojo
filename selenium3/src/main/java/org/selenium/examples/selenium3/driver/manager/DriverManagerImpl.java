@@ -4,6 +4,7 @@ import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
+import java.util.logging.Level;
 
 /**
  * @author Karol Kuta-Orlowicz

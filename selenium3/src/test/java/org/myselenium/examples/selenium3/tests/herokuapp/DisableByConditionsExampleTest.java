@@ -40,13 +40,13 @@ public class DisableByConditionsExampleTest extends BaseTest {
      * sh 'mvn test -pl selenium3 -DdriverType=REMOTE_FIREFOX'
      */
     @Test
-    @DisabledIfSystemProperty(named = "driverType", matches = "REMOTE_FIREFOX")
+    //@DisabledIfSystemProperty(named = "driverType", matches = "FIREFOX")
     public void shouldDisplayABTestingHref() {
         assertTrue(herokuAppLandPage.isAbTestingDisplay());
     }
 
     @Test
-    @DisabledIfSystemProperty(named = "driverType", matches = "REMOTE_FIREFOX")
+    //@DisabledIfSystemProperty(named = "driverType", matches = "FIREFOX")
     public void shouldDisplayAddRemoveHref() {
         assertTrue(herokuAppLandPage.isAddRemoveElementDisplay());
     }

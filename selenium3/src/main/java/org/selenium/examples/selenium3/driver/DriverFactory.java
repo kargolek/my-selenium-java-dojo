@@ -17,8 +17,8 @@ import java.util.Optional;
  */
 public class DriverFactory {
 
-    private final String HUB_URL = "http://192.168.1.12:4444/wd/hub/";
     private static final Logger logger = LoggerFactory.getLogger(DriverFactory.class);
+    private final String HUB_URL = "http://192.168.1.12:4444/wd/hub/";
 
     public WebDriver getDriver() throws MalformedURLException {
         final String driverType = Optional.ofNullable(System.getProperty("driverType")).orElse("CHROME");
@@ -30,6 +30,7 @@ public class DriverFactory {
         switch (DriverType.valueOf(driverType)) {
             case REMOTE_CHROME:
                 return new RemoteChromeDriverManager(this.HUB_URL)
+                        .setupLogPreferences()
                         .setFullWindowSize()
                         .setIgnoreCertErrors()
                         .getDriver();
@@ -48,6 +49,7 @@ public class DriverFactory {
             default:
                 return new ChromeDriverManager()
                         .setFullWindowSize()
+                        .setupLogPreferences()
                         .setIgnoreCertErrors()
                         .getDriver();
         }
