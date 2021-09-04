@@ -46,13 +46,13 @@ public class AllureChromeLogsExtension extends TestWatcherBase implements TestWa
     }
 
     private void setAllureAttachmentDriverLogsByType(Logs logs, String logType) {
-        try{
+        try {
             final String logsPrint = logs.get(logType).getAll().stream().map(Object::toString).collect(Collectors.joining("\n\n"));
             if (!logsPrint.equalsIgnoreCase("")) {
                 Allure.addAttachment(logType.toUpperCase(Locale.ROOT), logsPrint);
             } else
                 logger.info("Log attachment will not be created cause is empty " + logType);
-        } catch (Exception ignored){
+        } catch (Exception ignored) {
             logger.info("Log attachment will not be created cause an error " + logType);
         }
     }
