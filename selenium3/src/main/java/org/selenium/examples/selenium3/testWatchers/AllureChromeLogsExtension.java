@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 /**
  * @author Karol Kuta-Orlowicz
  */
-public class AllureChromeLogsExtension extends TestWatcherBase implements TestWatcher {
+public class AllureChromeLogsExtension extends ExtensionBase implements TestWatcher {
 
     private static final Logger logger = LoggerFactory.getLogger(AllureChromeLogsExtension.class);
 

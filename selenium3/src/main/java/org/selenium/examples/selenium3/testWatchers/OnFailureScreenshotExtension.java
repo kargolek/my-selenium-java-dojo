@@ -13,7 +13,7 @@ import java.io.ByteArrayInputStream;
 /**
  * @author Karol Kuta-Orlowicz
  */
-public class OnFailureScreenshotExtension extends TestWatcherBase implements TestWatcher {
+public class OnFailureScreenshotExtension extends ExtensionBase implements TestWatcher {
 
     private final static Logger logger = LoggerFactory.getLogger(OnFailureScreenshotExtension.class);
 
