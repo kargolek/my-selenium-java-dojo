@@ -5,8 +5,12 @@ import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.logging.LogType;
+import org.openqa.selenium.logging.LoggingPreferences;
+import org.openqa.selenium.remote.CapabilityType;
 
 import java.net.MalformedURLException;
+import java.util.logging.Level;
 
 /**
  * @author Karol Kuta-Orlowicz
@@ -39,6 +43,18 @@ public class ChromeDriverManager implements DriverManagerImpl {
 
     public ChromeDriverManager setHeadlessMode() {
         this.CHROME_OPTIONS.addArguments("--headless");
+        return this;
+    }
+
+    public ChromeDriverManager setupLogPreferences() {
+        LoggingPreferences logPrefs = new LoggingPreferences();
+        logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
+        logPrefs.enable(LogType.PROFILER, Level.ALL);
+        logPrefs.enable(LogType.BROWSER, Level.ALL);
+        logPrefs.enable(LogType.CLIENT, Level.ALL);
+        logPrefs.enable(LogType.DRIVER, Level.ALL);
+        logPrefs.enable(LogType.SERVER, Level.ALL);
+        this.CHROME_OPTIONS.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
         return this;
     }
 

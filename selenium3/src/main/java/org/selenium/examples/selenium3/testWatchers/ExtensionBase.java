@@ -12,9 +12,9 @@ import java.util.stream.Collectors;
 /**
  * @author Karol Kuta-Orlowicz
  */
-public abstract class TestWatcherBase {
+public abstract class ExtensionBase {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestWatcherBase.class);
+    private static final Logger logger = LoggerFactory.getLogger(ExtensionBase.class);
 
     final WebDriver getWebDriverByReflection(ExtensionContext context) throws Exception {
         final Field webDriverField = Arrays.stream(context.getRequiredTestInstance().getClass().getFields())

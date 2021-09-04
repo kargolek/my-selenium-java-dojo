@@ -7,5 +7,5 @@ public enum DriverType {
     CHROME,
     FIREFOX,
     REMOTE_CHROME,
-    REMOTE_FIREFOX;
+    REMOTE_FIREFOX
 }

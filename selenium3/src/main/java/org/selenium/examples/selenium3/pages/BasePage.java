@@ -11,7 +11,7 @@ import org.selenium.examples.selenium3.driver.wait.WaitTime;
  */
 public class BasePage {
 
-    public WebDriver webDriver;
+    public final WebDriver webDriver;
 
     public BasePage(WebDriver webDriver) {
         this.webDriver = webDriver;
