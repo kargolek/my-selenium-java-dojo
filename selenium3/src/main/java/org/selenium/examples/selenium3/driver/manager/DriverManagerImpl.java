@@ -17,4 +17,5 @@ public interface DriverManagerImpl {
 
     DriverManagerImpl setHeadlessMode();
 
+    DriverManagerImpl setEnglishLanguage();
 }

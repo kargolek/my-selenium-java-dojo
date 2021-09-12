@@ -33,16 +33,19 @@ public class DriverFactory {
                         .setupLogPreferences()
                         .setFullWindowSize()
                         .setIgnoreCertErrors()
+                        .setEnglishLanguage()
                         .getDriver();
             case REMOTE_FIREFOX:
                 WebDriver remoteFirefoxDriver = new RemoteFirefoxDriverManager(this.HUB_URL)
                         .setIgnoreCertErrors()
+                        .setEnglishLanguage()
                         .getDriver();
                 remoteFirefoxDriver.manage().window().maximize();
                 return remoteFirefoxDriver;
             case FIREFOX:
                 WebDriver firefoxDriver = new FirefoxDriverManager()
                         .setIgnoreCertErrors()
+                        .setEnglishLanguage()
                         .getDriver();
                 firefoxDriver.manage().window().maximize();
                 return firefoxDriver;
@@ -51,6 +54,7 @@ public class DriverFactory {
                         .setFullWindowSize()
                         .setupLogPreferences()
                         .setIgnoreCertErrors()
+                        .setEnglishLanguage()
                         .getDriver();
         }
     }

@@ -20,6 +20,9 @@
         <webdrivermanager>4.4.3</webdrivermanager>
         <allure.version>2.14.0</allure.version>
         <allure.maven.version>2.10.0</allure.maven.version>
+        <tess4j.version>4.5.1</tess4j.version>
+        <aspectj.version>1.9.7</aspectj.version>
+        <hamcrest.version>2.2</hamcrest.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -58,6 +61,17 @@
                 <artifactId>allure-maven</artifactId>
                 <version>${allure.maven.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-library</artifactId>
+                <version>${hamcrest.version}</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
@@ -66,6 +80,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin}</version>
+                <configuration>
+                    <useSystemClassLoader>false</useSystemClassLoader>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
