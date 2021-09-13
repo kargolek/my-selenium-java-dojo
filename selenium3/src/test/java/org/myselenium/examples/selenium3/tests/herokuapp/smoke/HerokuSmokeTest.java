@@ -10,12 +10,11 @@ import org.selenium.examples.selenium3.pages.herokuapp.HerokuAppLandPage;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Karol Kuta-Orlowicz
  */
-@Epic("Smoke test heroku")
+@Epic("Smoke tests heroku app")
 public class HerokuSmokeTest extends BaseTest {
 
     private HerokuAppLandPage herokuAppLandPage;
@@ -35,7 +34,7 @@ public class HerokuSmokeTest extends BaseTest {
     @Feature("Ab testing")
     @Severity(SeverityLevel.BLOCKER)
     public void shouldDisplayAbTesting() {
-        assertTrue(herokuAppLandPage.isAbTestingDisplay());
+        assertThat(herokuAppLandPage.isAbTestingDisplay(), is(true));
     }
 
     @Test
@@ -52,7 +51,7 @@ public class HerokuSmokeTest extends BaseTest {
     @Feature("Add/Remove Element")
     @Severity(SeverityLevel.BLOCKER)
     public void shouldDisplayAddRemoveElement() {
-        assertTrue(herokuAppLandPage.isAddRemoveElementDisplay());
+        assertThat(herokuAppLandPage.isAddRemoveElementDisplay(), is(true));
     }
 
     @Test
@@ -69,7 +68,7 @@ public class HerokuSmokeTest extends BaseTest {
     @Feature("Basic Auth")
     @Severity(SeverityLevel.BLOCKER)
     public void shouldDisplayBasicAuth() {
-        assertTrue(herokuAppLandPage.isBasicAuthHrefAvailable());
+        assertThat(herokuAppLandPage.isBasicAuthHrefAvailable(), is(true));
     }
 
     @Test
@@ -86,14 +85,14 @@ public class HerokuSmokeTest extends BaseTest {
     @Feature("Broken Image")
     @Severity(SeverityLevel.BLOCKER)
     public void shouldDisplayBrokenImage() {
-        assertTrue(herokuAppLandPage.isBrokenImagesHrefDisplay());
+        assertThat(herokuAppLandPage.isBrokenImagesHrefDisplay(), is(true));
     }
 
     @Test
     @Story("Open Broken Image page")
     @Feature("Broken Image")
     @Severity(SeverityLevel.BLOCKER)
-    public void shouldOpenBrokenImagePage(){
+    public void shouldOpenBrokenImagePage() {
         assertThat(herokuAppLandPage.clickBrokenImagesHref()
                 .getTextBrokenImageHeader(), is("Broken Images"));
     }
@@ -103,14 +102,14 @@ public class HerokuSmokeTest extends BaseTest {
     @Feature("Challenging DOM")
     @Severity(SeverityLevel.BLOCKER)
     public void shouldDisplayChallengingDom() {
-        assertTrue(herokuAppLandPage.isChallengingDomHrefDisplay());
+        assertThat(herokuAppLandPage.isChallengingDomHrefDisplay(), is(true));
     }
 
     @Test
     @Story("Open Challenging DOM page")
     @Feature("Challenging DOM")
     @Severity(SeverityLevel.BLOCKER)
-    public void shouldOpenChallengingDomPage(){
+    public void shouldOpenChallengingDomPage() {
         assertThat(herokuAppLandPage.clickChallengingDomHref()
                 .getTextChallengingDomHeader(), is("Challenging DOM"));
     }
