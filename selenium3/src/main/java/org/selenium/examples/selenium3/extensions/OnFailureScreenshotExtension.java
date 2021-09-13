@@ -1,4 +1,4 @@
-package org.selenium.examples.selenium3.testWatchers;
+package org.selenium.examples.selenium3.extensions;
 
 import io.qameta.allure.Allure;
 import org.junit.jupiter.api.extension.ExtensionContext;

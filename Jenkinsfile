@@ -12,18 +12,11 @@ pipeline {
             }
         }
 
-        stage('Chrome Test') {
+        stage('Smoke Test') {
             steps {
                 sh 'curl http://192.168.1.12:4444/wd/hub/status/'
-                sh 'mvn test -pl selenium3 -DdriverType=REMOTE_CHROME'
+                sh 'mvn test -pl selenium3 -Dtest=HerokuSmokeTest -DdriverType=REMOTE_CHROME'
                 fileOperations([fileRenameOperation(destination: 'selenium3/target/allure-results2', source: 'selenium3/target/allure-results')])
-            }
-        }
-
-        stage('Firefox Test') {
-            steps {
-                sh 'curl http://192.168.1.12:4444/wd/hub/status/'
-                sh 'mvn test -pl selenium3 -DdriverType=REMOTE_FIREFOX'
             }
         }
     }

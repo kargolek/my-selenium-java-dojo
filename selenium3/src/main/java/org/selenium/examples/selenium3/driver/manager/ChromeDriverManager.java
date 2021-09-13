@@ -46,6 +46,12 @@ public class ChromeDriverManager implements DriverManagerImpl {
         return this;
     }
 
+    @Override
+    public ChromeDriverManager setEnglishLanguage() {
+        this.CHROME_OPTIONS.addArguments("--lang=en-GB");
+        return this;
+    }
+
     public ChromeDriverManager setupLogPreferences() {
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.PERFORMANCE, Level.ALL);

@@ -1,4 +1,4 @@
-package org.selenium.examples.selenium3.testWatchers;
+package org.selenium.examples.selenium3.extensions;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.openqa.selenium.WebDriver;
