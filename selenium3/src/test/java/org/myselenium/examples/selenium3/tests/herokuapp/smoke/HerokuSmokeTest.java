@@ -44,6 +44,7 @@ public class HerokuSmokeTest extends BaseTest {
     public void shouldOpenAbTestingPage() {
         assertThat(herokuAppLandPage.clickAbTestingHref()
                 .getTextAbTestControlHeading(), anyOf(startsWith("A/B")));
+        LOGGER.info("INFO MESSAGE");
     }
 
     @Test

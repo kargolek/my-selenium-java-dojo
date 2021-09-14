@@ -1,9 +1,9 @@
 package org.selenium.examples.selenium3.extensions;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.openqa.selenium.WebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  */
 public abstract class ExtensionBase {
 
-    private static final Logger logger = LoggerFactory.getLogger(ExtensionBase.class);
+    private static final Logger LOGGER = LogManager.getLogger();
 
     final WebDriver getWebDriverByReflection(ExtensionContext context) throws Exception {
         final Field webDriverField = Arrays.stream(context.getRequiredTestInstance().getClass().getFields())
@@ -25,7 +25,7 @@ public abstract class ExtensionBase {
         try {
             return (WebDriver) webDriverField.get(context.getRequiredTestInstance());
         } catch (IllegalAccessException e) {
-            logger.error("Unable to get webdriver by reflection");
+            LOGGER.error("Unable to get webdriver by reflection");
         }
         throw new NullPointerException("Unable to get instance of a webdriver object");
     }
