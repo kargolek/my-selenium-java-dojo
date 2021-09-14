@@ -1,8 +1,8 @@
 package org.selenium.examples.selenium3.utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.stream.Collectors;
 
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class DriverUtil {
 
     private final WebDriver webDriver;
-    private Logger logger = LoggerFactory.getLogger(DriverUtil.class);
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public DriverUtil(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -25,7 +25,7 @@ public class DriverUtil {
                     .map(Object::toString)
                     .collect(Collectors.joining("\n\n"));
         } catch (Exception e) {
-            logger.info(String.format("Unable to get driver logs for a type: %s", logType));
+            LOGGER.error(String.format("Unable to get driver logs for a type: %s", logType));
         }
         return String.format("No provided logs type for: %s", logType);
     }

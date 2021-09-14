@@ -1,13 +1,13 @@
 package org.selenium.examples.selenium3.extensions;
 
 import io.qameta.allure.Allure;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.Logs;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Locale;
 import java.util.stream.Collectors;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  */
 public class AllureChromeLogsExtension extends ExtensionBase implements TestWatcher {
 
-    private static final Logger logger = LoggerFactory.getLogger(AllureChromeLogsExtension.class);
+    private static final Logger LOGGER = LogManager.getLogger();
 
     @Override
     public void testFailed(ExtensionContext context, Throwable cause) {
@@ -41,7 +41,7 @@ public class AllureChromeLogsExtension extends ExtensionBase implements TestWatc
             setAllureAttachmentDriverLogsByType(logs, LogType.CLIENT);
             setAllureAttachmentDriverLogsByType(logs, LogType.DRIVER);
         } catch (Exception e) {
-            logger.error("Unable to set Allure reports webdriver logs: " + e.getMessage(), e);
+            LOGGER.error("Unable to set Allure reports webdriver logs: " + e.getMessage(), e);
         }
     }
 
@@ -51,9 +51,9 @@ public class AllureChromeLogsExtension extends ExtensionBase implements TestWatc
             if (!logsPrint.equalsIgnoreCase("")) {
                 Allure.addAttachment(logType.toUpperCase(Locale.ROOT), logsPrint);
             } else
-                logger.info("Log attachment will not be created cause is empty " + logType);
+                LOGGER.warn("Log attachment will not be created cause is empty " + logType);
         } catch (Exception ignored) {
-            logger.info("Log attachment will not be created cause an error " + logType);
+            LOGGER.warn("Log attachment will not be created cause an error " + logType);
         }
     }
 }
