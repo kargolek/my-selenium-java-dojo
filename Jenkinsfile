@@ -23,7 +23,7 @@ pipeline {
         stage('Acceptance Tests') {
                     steps {
                         sh 'curl http://192.168.1.12:4444/wd/hub/status/'
-                        sh 'mvn test -pl selenium3 -Dtest=org/myselenium/examples/selenium3/tests/herokuapp/acceptance.*Test'
+                        sh 'mvn test -pl selenium3 -Dtest="org.myselenium.examples.selenium3.tests.herokuapp.acceptance.*Test"'
                         fileOperations([fileRenameOperation(destination: 'selenium3/target/acceptanceTestsResults', source: 'selenium3/target/allure-results')])
                     }
                 }
