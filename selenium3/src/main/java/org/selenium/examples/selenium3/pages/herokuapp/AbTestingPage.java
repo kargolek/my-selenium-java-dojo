@@ -23,6 +23,6 @@ public class AbTestingPage extends BasePage {
 
     @Step("Get main header text")
     public String getTextAbTestControlHeading() {
-        return waitForVisibility(abTestControlHeading, WaitTime.MEDIUM).getText();
+        return waitForVisibilityElement(abTestControlHeading, WaitTime.MEDIUM).getText();
     }
 }
