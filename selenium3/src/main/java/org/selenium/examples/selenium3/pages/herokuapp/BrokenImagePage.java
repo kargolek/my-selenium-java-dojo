@@ -23,6 +23,6 @@ public class BrokenImagePage extends BasePage {
 
     @Step("Get header text")
     public String getTextBrokenImageHeader() {
-        return waitForVisibility(brokenImageHeader, WaitTime.MEDIUM).getText();
+        return waitForVisibilityElement(brokenImageHeader, WaitTime.MEDIUM).getText();
     }
 }

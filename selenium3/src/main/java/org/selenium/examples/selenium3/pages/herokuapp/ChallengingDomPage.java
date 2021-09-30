@@ -23,6 +23,6 @@ public class ChallengingDomPage extends BasePage {
 
     @Step("Get header text")
     public String getTextChallengingDomHeader() {
-        return waitForVisibility(challengingDomHeader, WaitTime.MEDIUM).getText();
+        return waitForVisibilityElement(challengingDomHeader, WaitTime.MEDIUM).getText();
     }
 }

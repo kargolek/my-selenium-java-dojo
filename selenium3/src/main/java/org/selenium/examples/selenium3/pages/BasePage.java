@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.selenium.examples.selenium3.driver.wait.WaitTime;
 
+import java.util.List;
+
 /**
  * @author Karol Kuta-Orlowicz
  */
@@ -17,8 +19,17 @@ public class BasePage {
         this.webDriver = webDriver;
     }
 
-    public WebElement waitForVisibility(WebElement webElement, WaitTime waitTime) {
+    public WebElement waitForVisibilityElement(WebElement webElement, WaitTime waitTime) {
         return new WebDriverWait(webDriver, waitTime.time).until(ExpectedConditions.visibilityOf(webElement));
     }
+
+    public Boolean waitForInvisibilityElement(WebElement webElement, WaitTime waitTime) {
+        return new WebDriverWait(webDriver, waitTime.time).until(ExpectedConditions.invisibilityOf(webElement));
+    }
+
+    public Boolean waitForInvisibilityElements(List<WebElement> webElements, WaitTime waitTime) {
+        return new WebDriverWait(webDriver, waitTime.time).until(ExpectedConditions.invisibilityOfAllElements(webElements));
+    }
+
 
 }
